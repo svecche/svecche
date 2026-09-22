@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Svecche | Travel | Sports | Adventure</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Orbitron & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        svecche: {
+                            orange: '#ff6600',
+                            orangeHover: '#e55b00',
+                            dark: '#050706',
+                            card: '#0f1412',
+                            border: '#1c2622',
+                            muted: '#94a3b8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #050706;
+            color: #f1f5f9;
+        }
+        h1, h2, h3, h4, h5, h6, .font-display {
+            font-family: 'Orbitron', sans-serif;
+        }
+        /* Custom glow effects */
+        .orange-glow {
+            box-shadow: 0 0 25px rgba(255, 102, 0, 0.35);
+        }
+        .orange-glow-sm {
+            box-shadow: 0 0 12px rgba(255, 102, 0, 0.25);
+        }
+        .orange-glow-hover:hover {
+            box-shadow: 0 0 30px rgba(255, 102, 0, 0.55);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050706;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1c2622;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff6600;
+        }
+    </style>
+</head>
+<body class="bg-svecche-dark text-slate-100 antialiased selection:bg-svecche-orange selection:text-white">
+
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-svecche-dark/90 backdrop-blur-md border-b border-svecche-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo & Title -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-svecche-orange to-black border border-svecche-orange/50 flex items-center justify-center text-white shadow-lg orange-glow-sm group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-bolt-lightning text-svecche-orange text-xl"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-black text-2xl tracking-wider text-white">SVECCHE</span>
+                    <span class="text-[9px] tracking-[0.2em] text-svecche-orange font-semibold uppercase">Travel | Sports | Adventure</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#hero" class="text-white hover:text-svecche-orange transition-colors">Home</a>
+                <a href="#about" class="text-slate-300 hover:text-svecche-orange transition-colors">About</a>
+                <a href="#highlights" class="text-slate-300 hover:text-svecche-orange transition-colors">Highlights</a>
+                <a href="#expeditions" class="text-slate-300 hover:text-svecche-orange transition-colors">Expeditions</a>
+                <a href="#sports" class="text-slate-300 hover:text-svecche-orange transition-colors">Sports & Tournaments</a>
+                <a href="#media" class="text-slate-300 hover:text-svecche-orange transition-colors">Media & Vlogs</a>
+            </nav>
+
+            <!-- Action Button -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#inquiry" class="px-5 py-2.5 rounded-xl bg-svecche-orange hover:bg-svecche-orangeHover text-white font-bold text-sm transition-all orange-glow-sm orange-glow-hover flex items-center space-x-2">
+                    <span>Register / Book</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-svecche-card border-b border-svecche-border px-6 py-6 space-y-4">
+            <a href="#hero" class="block text-white hover:text-svecche-orange font-medium">Home</a>
+            <a href="#about" class="block text-slate-300 hover:text-svecche-orange font-medium">About</a>
+            <a href="#highlights" class="block text-slate-300 hover:text-svecche-orange font-medium">Highlights</a>
+            <a href="#expeditions" class="block text-slate-300 hover:text-svecche-orange font-medium">Expeditions</a>
+            <a href="#sports" class="block text-slate-300 hover:text-svecche-orange font-medium">Sports & Tournaments</a>
+            <a href="#media" class="block text-slate-300 hover:text-svecche-orange font-medium">Media & Vlogs</a>
+            <div class="pt-4 border-t border-svecche-border">
+                <a href="#inquiry" class="w-full py-3 rounded-xl bg-svecche-orange hover:bg-svecche-orangeHover text-white font-bold text-center block orange-glow-sm">Register / Book</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+            <!-- Background Image with Dark Gradients -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2000&q=80" alt="Mountain Peak Wilderness" class="w-full h-full object-cover object-center transform scale-105 opacity-40">
+                <div class="absolute inset-0 bg-gradient-to-r from-svecche-dark via-svecche-dark/90 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-svecche-dark via-transparent to-svecche-dark/60"></div>
+            </div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-8 space-y-8">
+                    <!-- Brand Badge -->
+                    <div class="inline-flex items-center space-x-3 px-4 py-2 rounded-full bg-svecche-card border border-svecche-orange/40 text-svecche-orange text-xs font-bold tracking-widest uppercase orange-glow-sm">
+                        <i class="fa-solid fa-mountain-sun text-svecche-orange"></i>
+                        <span>TRAVEL | SPORTS | ADVENTURE</span>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-display tracking-tight text-white leading-[1.1]">
+                        PUSH YOUR <span class="text-transparent bg-clip-text bg-gradient-to-r from-svecche-orange via-orange-400 to-amber-200">LIMITS</span> BEYOND THE HORIZON.
+                    </h1>
+
+                    <!-- Description -->
+                    <p class="text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed font-light">
+                        Welcome to Svecche. We bridge the raw thrill of high-altitude mountain trekking, competitive indoor/outdoor sports tournaments, and immersive wilderness expeditions.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-5 pt-2">
+                        <a href="#expeditions" class="px-8 py-4 rounded-xl bg-svecche-orange hover:bg-svecche-orangeHover text-white font-bold text-center transition-all orange-glow orange-glow-hover flex items-center justify-center space-x-3">
+                            <span>Explore Expeditions</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#sports" class="px-8 py-4 rounded-xl bg-svecche-card hover:bg-svecche-border border border-svecche-border text-white font-bold text-center backdrop-blur-md transition-all flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-trophy text-svecche-orange"></i>
+                            <span>Join Tournaments</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-svecche-border max-w-lg">
+                        <div>
+                            <p class="text-3xl font-bold font-display text-white">50+</p>
+                            <p class="text-xs text-svecche-muted uppercase tracking-wider mt-1">Summits Conquered</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold font-display text-white">1,200+</p>
+                            <p class="text-xs text-svecche-muted uppercase tracking-wider mt-1">Athletes & Trekkers</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold font-display text-white">15+</p>
+                            <p class="text-xs text-svecche-muted uppercase tracking-wider mt-1">Smash Tournaments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Badge / Logo Card -->
+                <div class="lg:col-span-4 hidden lg:block">
+                    <div class="relative">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-svecche-orange to-emerald-600 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
+                        <div class="relative bg-svecche-card border border-svecche-border rounded-3xl p-8 shadow-2xl backdrop-blur-xl text-center space-y-6">
+                            <div class="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br from-svecche-orange to-black border-2 border-svecche-orange flex items-center justify-center text-white orange-glow">
+                                <i class="fa-solid fa-bolt-lightning text-svecche-orange text-4xl"></i>
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="font-display font-black text-2xl text-white tracking-widest">SVECCHE</h3>
+                                <p class="text-xs text-svecche-orange font-semibold tracking-widest">UNCOMPROMISING WILDERNESS</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-black/50 border border-svecche-border text-xs text-slate-300 leading-relaxed">
+                                "Whether scaling Bandaje's cascading waterfalls or smashing shuttles at Namma Smash Club—Svecche is a lifestyle."
+                            </div>
+                            <a href="#inquiry" class="w-full py-3 rounded-xl bg-svecche-orange hover:bg-svecche-orangeHover text-white font-bold text-sm block transition-colors orange-glow-sm">
+                                Book Your Next Quest
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 bg-svecche-card/50 border-y border-svecche-border relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="text-svecche-orange text-sm font-bold tracking-widest uppercase">The Svecche Ethos</span>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold font-display text-white leading-tight">Bridging Nature, Competition, & Soul</h2>
+                        <p class="text-slate-300 text-base leading-relaxed">
+                            Founded for those who refuse to sit still, <strong class="text-white">Svecche</strong> is more than an adventure brand. We curate elite outdoor trekking expeditions into the Western Ghats and Himalayas, while hosting high-octane competitive sports tournaments like our signature badminton showdowns in Bengaluru.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="p-5 rounded-2xl bg-svecche-card border border-svecche-border flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-svecche-orange/20 text-svecche-orange flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-route text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold font-display text-sm">Wild Expeditions</h4>
+                                    <p class="text-xs text-svecche-muted mt-1">Immersive treks with expert wilderness leaders.</p>
+                                </div>
+                            </div>
+                            <div class="p-5 rounded-2xl bg-svecche-card border border-svecche-border flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-svecche-orange/20 text-svecche-orange flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-trophy text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold font-display text-sm">Pro Sports</h4>
+                                    <p class="text-xs text-svecche-muted mt-1">Competitive badminton & multi-sport tournaments.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=600&q=80" alt="Trekking" class="rounded-2xl object-cover w-full h-48 sm:h-64 border border-svecche-border">
+                            <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=600&q=80" alt="Badminton" class="rounded-2xl object-cover w-full h-36 sm:h-48 border border-svecche-border">
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Mountain" class="rounded-2xl object-cover w-full h-36 sm:h-48 border border-svecche-border">
+                            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Landscape" class="rounded-2xl object-cover w-full h-48 sm:h-64 border border-svecche-border">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="highlights" class="py-24 bg-svecche-dark relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <span class="text-svecche-orange text-sm font-bold tracking-widest uppercase">Pillars of Svecche</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold font-display text-white">Interactive Experience Hub</h2>
+                    <p class="text-svecche-muted text-base">Select a pillar below to explore our featured destinations, tournament brackets, and adventure gear.</p>
+                </div>
+
+                <!-- Tab Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+                    <button class="tab-btn px-7 py-3.5 rounded-xl font-display font-bold text-sm tracking-wide transition-all bg-svecche-orange text-white orange-glow-sm" data-target="tab-travel">
+                        <i class="fa-solid fa-plane-departure mr-2"></i> TRAVEL
+                    </button>
+                    <button class="tab-btn px-7 py-3.5 rounded-xl font-display font-bold text-sm tracking-wide transition-all bg-svecche-card text-svecche-muted hover:text-white border border-svecche-border" data-target="tab-sports">
+                        <i class="fa-solid fa-medal mr-2"></i> SPORTS
+                    </button>
+                    <button class="tab-btn px-7 py-3.5 rounded-xl font-display font-bold text-sm tracking-wide transition-all bg-svecche-card text-svecche-muted hover:text-white border border-svecche-border" data-target="tab-adventure">
+                        <i class="fa-solid fa-fire-flame-curved mr-2"></i> ADVENTURE
+                    </button>
+                </div>
+
+                <!-- Tab Contents -->
+                <div class="tab-content-container">
+                    <!-- Travel Tab -->
+                    <div id="tab-travel" class="tab-pane grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-svecche-card border border-svecche-border rounded-3xl p-6 space-y-4">
+                            <div class="rounded-2xl overflow-hidden aspect-video">
+                                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Western Ghats" class="w-full h-full object-cover">
+                            </div>
+                            <span class="px-3 py-1 rounded bg-svecche-orange/20 text-svecche-orange text-xs font-bold uppercase">Western Ghats</span>
+                            <h3 class="font-display font-bold text-xl text-white">Ballalarayana Durga & Bandaje</h3>
+                            <p class="text-xs text-svecche-muted leading-relaxed">Legendary fort ruins, steep ridge ascents, and the magnificent Bandaje Arbi waterfall drop.</p>
+                            <a href="#expeditions" class="text-svecche-orange text-sm font-semibold flex items-center space-x-2 hover:underline"><span>View Trek Details</span> <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                        <div class="bg-svecche-card border border-svecche-border rounded-3xl p-6 space-y-4">
+                            <div class="rounded-2xl overflow-hidden aspect-video">
+                                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Himalayas" class="w-full h-full object-cover">
+                            </div>
+                            <span class="px-3 py-1 rounded bg-svecche-orange/20 text-svecche-orange text-xs font-bold uppercase">Himalayas</span>
+                            <h3 class="font-display font-bold text-xl text-white">Kedarkantha Summit Expedition</h3>
+                            <p class="text-xs text-svecche-muted leading-relaxed">Snow-laden pine forests, alpine campfires under starlit skies, and a breathtaking 3,800m sunrise summit.</p>
+                            <a href="#expeditions" class="text-svecche-orange text-sm font-semibold flex items-center space-x-2 hover:underline"><span>View Trek Details</span> <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                        <div class="bg-svecche-card border border-svecche-border rounded-3xl p-6 space-y-4">
+                            <div class="rounded-2xl overflow-hidden aspect-video">
+                                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80" alt="Coorg Trails" class="w-full h-full object-cover">
+                            </div>
+                            <span class="px-3 py-1 rounded bg-svecche-orange/20 text-svecche-orange text-xs font-bold uppercase">South India</span>
+                            <h3 class="font-display font-bold text-xl text-white">Tadiandamol Peak Trails</h3>
+                            <p class="text-xs text-svecche-muted leading-relaxed">Coorg’s highest peak trek weaving through lush coffee plantations and mist-shrouded grasslands.</p>
+                            <a href="#expeditions" class="text-svecche-orange text-sm font-semibold flex items-center space-x-2 hover:underline"><span>View Trek Details</span> <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Sports Tab -->
+                    <div id="tab-sports" class="tab-pane hidden grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-svecche-card border border-svecche-border rounded-3xl p-6 space-y-4">
+                            <div class="rounded-2xl overflow-hidden aspect-video">
+                                <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=600&q=80" alt="Badminton Tournament" class="w-full h-full object-cover">
+                            </div>
+                            <span class="px-3 py-1 rounded bg-svecche-orange/20 text-svecche-orange text-xs font-bold uppercase">Badminton</span>
+                            <h3 class="font-display font-bold text-xl text-white">Svecche Open Smash Cup</h3>
+                            <p class="text-xs text-svecche-muted leading-relaxed">Hosted at Namma Smash Club, Bengaluru. Men's Singles, Doubles, and Mixed categories with cash prizes.</p>
+                            <a href="#sports" class="text-svecche-orange text-sm font-semibold flex items-center space-x-2 hover:underline"><span>Tournament Schedule</span> <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                        <div class="bg-svecche-card border border-svecche-border rounded-3xl p-6 space-y-4">
+                            <div class="rounded-2xl overflow-hidden aspect-video">
+                                <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=600&q=80" alt="Running" class="w-full h-full object-cover">
+                            </div>
+                            <span class="px-3 py-1 rounded bg-svecche-orange/20 text-svecche-orange text-xs font-bold uppercase">Endurance</span>
+                            <h3 class="font-display font-bold text-xl text-white">Urban Night Trail Run</h3>
+                            <p class="text-xs text-svecche-muted leading-relaxed">A high-energy 10K and 21K endurance run through rugged terrain and city park circuits.</p>
+                            <a href="#sports" class="text-svecche-orange text-sm font-semibold flex items-center space-x-2 hover:underline"><span>Tournament Schedule</span> <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                        <div class="bg-svecche-card border border-svecche-border rounded-3xl p-6 space-y-4">
+                            <div class="rounded-2xl overflow-hidden aspect-video">
+                                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&q=80" alt="Football" class="w-full h-full object-cover">
+                            </div>
+                            <span class="px-3 py-1 rounded bg-svecche-orange/20 text-svecche-orange text-xs font-bold uppercase">Turf Soccer</span>
+                            <h3 class="font-display font-bold text-xl text-white">Svecche 5-a-Side Cup</h3>
+                            <p class="text-xs text-svecche-muted leading-relaxed">Fast-paced knockout tournament featuring top amateur football clubs across the city.</p>
+                            <a href="#sports" class="text-svecche-orange text-sm font-semibold flex items-center space-x-2 hover:underline"><span>Tournament Schedule</span> <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Adventure Tab -->
+                    <div id="tab-adventure" class="tab-pane hidden grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-svecche-card border border-svecche-border rounded-3xl p-6 space-y-4">
+                            <div class="rounded-2xl overflow-hidden aspect-video">
+                                <img src="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?auto=format&fit=crop&w=600&q=80" alt="Waterfalls" class="w-full h-full object-cover">
+                            </div>
+                            <span class="px-3 py-1 rounded bg-svecche-orange/20 text-svecche-orange text-xs font-bold uppercase">Waterfall Rappelling</span>
+                            <h3 class="font-display font-bold text-xl text-white">Bandaje Arbi Waterfall Drop</h3>
+                            <p class="text-xs text-svecche-muted leading-relaxed">Descent down 200 feet of roaring cascade water under expert mountaineering supervision.</p>
+                            <a href="#expeditions" class="text-svecche-orange text-sm font-semibold flex items-center space-x-2 hover:underline"><span>Book Adventure</span> <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                        <div class="bg-svecche-card border border-svecche-border rounded-3xl p-6 space-y-4">
+                            <div class="rounded-2xl overflow-hidden aspect-video">
+                                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=600&q=80" alt="Camping" class="w-full h-full object-cover">
+                            </div>
+                            <span class="px-3 py-1 rounded bg-svecche-orange/20 text-svecche-orange text-xs font-bold uppercase">Wilderness Camping</span>
+                            <h3 class="font-display font-bold text-xl text-white">Starlit Ridge Bivouac</h3>
+                            <p class="text-xs text-svecche-muted leading-relaxed">Remote wilderness camp setup with professional gear, bonfire stories, and stargazing.</p>
+                            <a href="#expeditions" class="text-svecche-orange text-sm font-semibold flex items-center space-x-2 hover:underline"><span>Book Adventure</span> <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                        <div class="bg-svecche-card border border-svecche-border rounded-3xl p-6 space-y-4">
+                            <div class="rounded-2xl overflow-hidden aspect-video">
+                                <img src="https://images.unsplash.com/photo-1533240332313-0db49b459ad7?auto=format&fit=crop&w=600&q=80" alt="Rock Climbing" class="w-full h-full object-cover">
+                            </div>
+                            <span class="px-3 py-1 rounded bg-svecche-orange/20 text-svecche-orange text-xs font-bold uppercase">Rock Climbing</span>
+                            <h3 class="font-display font-bold text-xl text-white">Granite Boulder Ascents</h3>
+                            <p class="text-xs text-svecche-muted leading-relaxed">Technical bouldering and rock climbing workshops led by certified outdoor instructors.</p>
+                            <a href="#expeditions" class="text-svecche-orange text-sm font-semibold flex items-center space-x-2 hover:underline"><span>Book Adventure</span> <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expeditions" class="py-24 bg-svecche-card/30 border-t border-svecche-border relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16">
+                    <div class="space-y-4 max-w-2xl">
+                        <span class="text-svecche-orange text-sm font-bold tracking-widest uppercase">Upcoming Expeditions</span>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold font-display text-white">Featured Treks & Trails</h2>
+                        <p class="text-svecche-muted text-base">Book your slot on our upcoming weekend getaways and grand mountain expeditions.</p>
+                    </div>
+                </div>
+
+                <!-- Expeditions Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Expedition 1: Bandaje & Ballalarayana Durga -->
+                    <div class="bg-svecche-card border border-svecche-border rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-svecche-orange/60 transition-all">
+                        <div>
+                            <div class="relative aspect-video">
+                                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Bandaje Waterfall Trek" class="w-full h-full object-cover">
+                                <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-svecche-dark/80 backdrop-blur-md text-svecche-orange text-xs font-bold uppercase border border-svecche-border">Western Ghats</span>
+                                <span class="absolute top-4 right-4 px-3 py-1 rounded-lg bg-svecche-orange text-white text-xs font-bold">2 Days / 1 Night</span>
+                            </div>
+                            <div class="p-8 space-y-4">
+                                <div class="flex items-center space-x-4 text-xs text-svecche-muted">
+                                    <span><i class="fa-solid fa-gauge-high text-svecche-orange mr-1"></i> Moderate to Difficult</span>
+                                    <span><i class="fa-solid fa-location-dot text-svecche-orange mr-1"></i> Chikkamagaluru, Karnataka</span>
+                                </div>
+                                <h3 class="text-2xl font-bold font-display text-white">Bandaje Waterfall Trek & Ballalarayana Durga Fort</h3>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    Conquer the historic ruins of Ballalarayana Durga at sunset, camp under the stars, and trek down the steep, pristine Bandaje Arbi waterfall gorge.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-8 pt-0 flex items-center justify-between border-t border-svecche-border mt-4">
+                            <div>
+                                <span class="text-xs text-svecche-muted block">Expedition Fee</span>
+                                <span class="text-2xl font-bold font-display text-white">₹3,499 <span class="text-xs text-svecche-muted font-normal">/ person</span></span>
+                            </div>
+                            <a href="#inquiry" class="px-6 py-3 rounded-xl bg-svecche-orange hover:bg-svecche-orangeHover text-white font-bold text-sm transition-all orange-glow-sm">
+                                Reserve Trek
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Expedition 2: Kedarkantha -->
+                    <div class="bg-svecche-card border border-svecche-border rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-svecche-orange/60 transition-all">
+                        <div>
+                            <div class="relative aspect-video">
+                                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Kedarkantha Summit" class="w-full h-full object-cover">
+                                <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-svecche-dark/80 backdrop-blur-md text-svecche-orange text-xs font-bold uppercase border border-svecche-border">Himalayas</span>
+                                <span class="absolute top-4 right-4 px-3 py-1 rounded-lg bg-svecche-orange text-white text-xs font-bold">6 Days / 5 Nights</span>
+                            </div>
+                            <div class="p-8 space-y-4">
+                                <div class="flex items-center space-x-4 text-xs text-svecche-muted">
+                                    <span><i class="fa-solid fa-gauge-high text-svecche-orange mr-1"></i> Moderate (3,800m)</span>
+                                    <span><i class="fa-solid fa-location-dot text-svecche-orange mr-1"></i> Uttarakhand Himalayas</span>
+                                </div>
+                                <h3 class="text-2xl font-bold font-display text-white">Kedarkantha Winter Snow Summit</h3>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    The ultimate Himalayan snow trek. Traverse frozen lakes, dense pine forests, and witness a panoramic 360-degree sunrise across majestic snow peaks.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-8 pt-0 flex items-center justify-between border-t border-svecche-border mt-4">
+                            <div>
+                                <span class="text-xs text-svecche-muted block">Expedition Fee</span>
+                                <span class="text-2xl font-bold font-display text-white">₹8,999 <span class="text-xs text-svecche-muted font-normal">/ person</span></span>
+                            </div>
+                            <a href="#inquiry" class="px-6 py-3 rounded-xl bg-svecche-orange hover:bg-svecche-orangeHover text-white font-bold text-sm transition-all orange-glow-sm">
+                                Reserve Trek
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="sports" class="py-24 bg-svecche-dark border-t border-svecche-border relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <span class="text-svecche-orange text-sm font-bold tracking-widest uppercase">Competitions & Tournaments</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold font-display text-white">Svecche Badminton Championship</h2>
+                    <p class="text-svecche-muted text-base">Proudly hosted at Namma Smash Club, Bengaluru. Smash your way to glory with exciting cash prizes and trophies.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="bg-svecche-card border border-svecche-border rounded-3xl p-8 space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-14 h-14 rounded-2xl bg-svecche-orange/20 text-svecche-orange flex items-center justify-center text-2xl shrink-0">
+                                    <i class="fa-solid fa-trophy"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-svecche-orange font-bold uppercase tracking-wider">Venue Partner</span>
+                                    <h4 class="text-white font-bold font-display text-lg">Namma Smash Club, Bengaluru</h4>
+                                </div>
+                            </div>
+                            <div class="space-y-3 pt-2 border-t border-svecche-border text-sm text-slate-300">
+                                <div class="flex justify-between">
+                                    <span class="text-svecche-muted">Categories:</span>
+                                    <span class="font-semibold text-white">Men's Singles & Doubles, Mixed</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-svecche-muted">Match Format:</span>
+                                    <span class="font-semibold text-white">Knockout (30 points single set)</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-svecche-muted">Prize Pool:</span>
+                                    <span class="font-semibold text-svecche-orange">₹25,000 + Trophies</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-svecche-muted">Date:</span>
+                                    <span class="font-semibold text-white">Next Weekend</span>
+                                </div>
+                            </div>
+                            <a href="#inquiry" class="w-full py-3.5 rounded-xl bg-svecche-orange hover:bg-svecche-orangeHover text-white font-bold text-center block transition-colors orange-glow-sm">
+                                Register for Tournament
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7">
+                        <div class="relative rounded-3xl overflow-hidden aspect-video border border-svecche-border shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=1000&q=80" alt="Badminton Action" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-svecche-dark via-transparent to-transparent flex items-end p-8">
+                                <div>
+                                    <span class="px-3 py-1 rounded bg-svecche-orange text-white text-xs font-bold uppercase">Live Action</span>
+                                    <h3 class="text-2xl font-bold font-display text-white mt-2">Fast Shuttles. Intense Rallies. Ultimate Glory.</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="media" class="py-24 bg-svecche-card/30 border-t border-svecche-border relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <span class="text-svecche-orange text-sm font-bold tracking-widest uppercase">Cinematic Archives</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold font-display text-white">Media, Vlogs & Pro Gear</h2>
+                    <p class="text-svecche-muted text-base">Captured in pristine 4K using our professional field setup: Sony α6100 and DJI Ronin-SC stabilizer.</p>
+                </div>
+
+                <!-- Gear Highlights Bar -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-svecche-card border border-svecche-border rounded-2xl p-5 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-svecche-orange/20 text-svecche-orange flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold font-display text-sm">Sony α6100 Mirrorless</h4>
+                            <p class="text-xs text-svecche-muted">Crisp 4K mountain & sports capture.</p>
+                        </div>
+                    </div>
+                    <div class="bg-svecche-card border border-svecche-border rounded-2xl p-5 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-svecche-orange/20 text-svecche-orange flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold font-display text-sm">DJI Ronin-SC Gimbal</h4>
+                            <p class="text-xs text-svecche-muted">Cinematic stabilized action reels.</p>
+                        </div>
+                    </div>
+                    <div class="bg-svecche-card border border-svecche-border rounded-2xl p-5 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-svecche-orange/20 text-svecche-orange flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-microphone-lines"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold font-display text-sm">Røde Pro Audio</h4>
+                            <p class="text-xs text-svecche-muted">Crystal clear trail & court audio.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="group relative rounded-3xl overflow-hidden aspect-video bg-svecche-card border border-svecche-border shadow-xl cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Vlog 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-svecche-dark/90 via-svecche-dark/30 to-transparent flex flex-col justify-between p-6">
+                            <div class="flex justify-between items-center">
+                                <span class="px-3 py-1 rounded-full bg-svecche-orange text-white font-bold text-xs uppercase">Vlog 01</span>
+                                <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-play ml-0.5"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold font-display text-lg">Bandaje Waterfall Descent 4K</h4>
+                                <p class="text-xs text-svecche-muted mt-1">Sony α6100 • DJI Ronin-SC</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative rounded-3xl overflow-hidden aspect-video bg-svecche-card border border-svecche-border shadow-xl cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=600&q=80" alt="Vlog 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-svecche-dark/90 via-svecche-dark/30 to-transparent flex flex-col justify-between p-6">
+                            <div class="flex justify-between items-center">
+                                <span class="px-3 py-1 rounded-full bg-svecche-orange text-white font-bold text-xs uppercase">Vlog 02</span>
+                                <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-play ml-0.5"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold font-display text-lg">Namma Smash Club Finals Highlights</h4>
+                                <p class="text-xs text-svecche-muted mt-1">Bengaluru Badminton Championship</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative rounded-3xl overflow-hidden aspect-video bg-svecche-card border border-svecche-border shadow-xl cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Vlog 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-svecche-dark/90 via-svecche-dark/30 to-transparent flex flex-col justify-between p-6">
+                            <div class="flex justify-between items-center">
+                                <span class="px-3 py-1 rounded-full bg-svecche-orange text-white font-bold text-xs uppercase">Vlog 03</span>
+                                <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-play ml-0.5"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold font-display text-lg">Kedarkantha Winter Summit Diary</h4>
+                                <p class="text-xs text-svecche-muted mt-1">Himalayan Expedition Series</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="inquiry" class="py-24 bg-svecche-dark border-t border-svecche-border relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-svecche-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-5 space-y-6">
+                        <span class="text-svecche-orange text-sm font-bold tracking-widest uppercase">Join the Movement</span>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold font-display text-white leading-tight">Ready for Your Next Svecche Quest?</h2>
+                        <p class="text-slate-300 text-base leading-relaxed">
+                            Sign up for upcoming treks, register your team for the badminton tournament at Namma Smash Club, or request custom adventure packages.
+                        </p>
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-2xl bg-svecche-card border border-svecche-border flex items-center justify-center text-svecche-orange shrink-0">
+                                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold text-sm">Certified Expedition Leaders</h4>
+                                    <p class="text-xs text-svecche-muted">Trained in wilderness first aid & alpine rescue.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-2xl bg-svecche-card border border-svecche-border flex items-center justify-center text-svecche-orange shrink-0">
+                                    <i class="fa-solid fa-bolt-lightning text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold text-sm">Instant Confirmation</h4>
+                                    <p class="text-xs text-svecche-muted">Our coordinators will reach out via WhatsApp & Email.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7">
+                        <div class="bg-svecche-card border border-svecche-border rounded-3xl p-8 sm:p-10 shadow-2xl relative">
+                            <!-- Success Message Box -->
+                            <div id="form-success" class="hidden mb-6 p-4 rounded-2xl bg-emerald-950/80 border border-emerald-600 text-emerald-200 text-sm flex items-center space-x-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
+                                <div>
+                                    <span class="font-bold block">Registration Received Successfully!</span>
+                                    <span>Welcome to Svecche. We have dispatched confirmation details to your inbox.</span>
+                                </div>
+                            </div>
+
+                            <form id="inquiry-form" class="space-y-6">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider">Full Name</label>
+                                        <input type="text" required placeholder="Alex Vance" class="w-full bg-svecche-dark border border-svecche-border rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-svecche-orange transition-colors text-sm">
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider">Email Address</label>
+                                        <input type="email" required placeholder="alex@example.com" class="w-full bg-svecche-dark border border-svecche-border rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-svecche-orange transition-colors text-sm">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider">Activity Category</label>
+                                        <select id="activity-select" class="w-full bg-svecche-dark border border-svecche-border rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-svecche-orange transition-colors text-sm">
+                                            <option>Bandaje Waterfall & Ballalarayana Durga Trek</option>
+                                            <option>Kedarkantha Winter Snow Summit</option>
+                                            <option>Svecche Badminton Tournament (Namma Smash Club)</option>
+                                            <option>Urban Trail Run / Football Tournament</option>
+                                            <option>Custom Expedition / Private Booking</option>
+                                        </select>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider">Phone / WhatsApp</label>
+                                        <input type="tel" required placeholder="+91 98765 43210" class="w-full bg-svecche-dark border border-svecche-border rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-svecche-orange transition-colors text-sm">
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider">Additional Notes or Team Members</label>
+                                    <textarea rows="4" placeholder="Mention partner names for doubles tournament or trekking experience level..." class="w-full bg-svecche-dark border border-svecche-border rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-svecche-orange transition-colors text-sm"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-4 rounded-xl bg-svecche-orange hover:bg-svecche-orangeHover text-white font-bold text-center transition-all orange-glow orange-glow-hover flex items-center justify-center space-x-2">
+                                    <span>Submit Registration / Booking</span>
+                                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-svecche-card border-t border-svecche-border pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-svecche-border">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-2 space-y-4">
+                    <a href="#" class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-svecche-orange to-black border border-svecche-orange/50 flex items-center justify-center text-white orange-glow-sm">
+                            <i class="fa-solid fa-bolt-lightning text-svecche-orange text-xl"></i>
+                        </div>
+                        <span class="font-display font-black text-xl tracking-wider text-white">SVECCHE</span>
+                    </a>
+                    <p class="text-svecche-muted text-sm max-w-sm leading-relaxed">
+                        TRAVEL | SPORTS | ADVENTURE. Pushing human limits across high-altitude mountain trails and competitive indoor arenas.
+                    </p>
+                    <div class="flex items-center space-x-4 pt-2">
+                        <a href="#" class="w-10 h-10 rounded-xl bg-svecche-dark hover:bg-svecche-orange text-slate-300 hover:text-white flex items-center justify-center transition-colors border border-svecche-border"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-svecche-dark hover:bg-svecche-orange text-slate-300 hover:text-white flex items-center justify-center transition-colors border border-svecche-border"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-svecche-dark hover:bg-svecche-orange text-slate-300 hover:text-white flex items-center justify-center transition-colors border border-svecche-border"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-svecche-dark hover:bg-svecche-orange text-slate-300 hover:text-white flex items-center justify-center transition-colors border border-svecche-border"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold font-display text-sm uppercase tracking-wider">Explore</h4>
+                    <ul class="space-y-2.5 text-sm text-svecche-muted">
+                        <li><a href="#expeditions" class="hover:text-svecche-orange transition-colors">Western Ghats Treks</a></li>
+                        <li><a href="#expeditions" class="hover:text-svecche-orange transition-colors">Himalayan Summits</a></li>
+                        <li><a href="#sports" class="hover:text-svecche-orange transition-colors">Namma Smash Club Tournaments</a></li>
+                        <li><a href="#media" class="hover:text-svecche-orange transition-colors">Cinematic 4K Vlogs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold font-display text-sm uppercase tracking-wider">Svecche</h4>
+                    <ul class="space-y-2.5 text-sm text-svecche-muted">
+                        <li><a href="#about" class="hover:text-svecche-orange transition-colors">About Our Ethos</a></li>
+                        <li><a href="#media" class="hover:text-svecche-orange transition-colors">Sony & DJI Gear Setup</a></li>
+                        <li><a href="#" class="hover:text-svecche-orange transition-colors">Safety Guidelines</a></li>
+                        <li><a href="#inquiry" class="hover:text-svecche-orange transition-colors">Contact Coordinators</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold font-display text-sm uppercase tracking-wider">Dispatch Club</h4>
+                    <p class="text-xs text-svecche-muted">Get early alerts for flash treks and tournament bracket openings.</p>
+                    <form class="space-y-2" onsubmit="event.preventDefault(); alert('Subscribed to Svecche dispatches successfully!');">
+                        <input type="email" placeholder="Your email address" class="w-full bg-svecche-dark border border-svecche-border rounded-xl px-4 py-2.5 text-white text-xs placeholder-slate-500 focus:outline-none focus:border-svecche-orange">
+                        <button type="submit" class="w-full py-2 rounded-xl bg-svecche-orange hover:bg-svecche-orangeHover text-white font-semibold text-xs transition-colors orange-glow-sm">Subscribe</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-svecche-muted">
+                <p>&copy; 2026 Svecche Travel, Sports & Adventure. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-300">Terms of Expedition</a>
+                    <a href="#" class="hover:text-slate-300">Waiver</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tab switching functionality for Experience Hub
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update button active styles
+                tabBtns.forEach(b => {
+                    b.classList.remove('bg-svecche-orange', 'text-white', 'orange-glow-sm');
+                    b.classList.add('bg-svecche-card', 'text-svecche-muted', 'border', 'border-svecche-border');
+                });
+                btn.classList.remove('bg-svecche-card', 'text-svecche-muted', 'border', 'border-svecche-border');
+                btn.classList.add('bg-svecche-orange', 'text-white', 'orange-glow-sm');
+
+                const targetId = btn.getAttribute('data-target');
+                tabPanes.forEach(pane => {
+                    if (pane.id === targetId) {
+                        pane.classList.remove('hidden');
+                    } else {
+                        pane.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Inquiry form submission handler
+        const inquiryForm = document.getElementById('inquiry-form');
+        const formSuccess = document.getElementById('form-success');
+
+        inquiryForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formSuccess.classList.remove('hidden');
+            inquiryForm.reset();
+            setTimeout(() => {
+                formSuccess.classList.add('hidden');
+            }, 7000);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 40) {
+                navbar.classList.add('bg-svecche-dark/95', 'shadow-2xl');
+            } else {
+                navbar.classList.remove('bg-svecche-dark/95', 'shadow-2xl');
+            }
+        });
+    </script>
+</body>
+</html>
